@@ -59,7 +59,7 @@ export default function About() {
                   <div className="w-28 h-28 rounded-full bg-gray-900 mb-6 overflow-hidden border-2 border-primary/20 relative shadow-2xl shadow-primary/10">
                      <Image 
                         src={partner.image} 
-                        alt={partner.name}
+                        alt={`Foto de ${partner.name}, ${partner.role} na Braxen`}
                         fill
                         className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
                      />

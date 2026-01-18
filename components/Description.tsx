@@ -6,12 +6,12 @@ export default function Description() {
       {/* Background decoration */}
 
       <div className="w-full h-full z-0 overflow-hidden flex items-center justify-end">
-      <Image src="/boy-future.png" alt="Braxen" height={950}  width={550} className="object-cover" />
+      <Image src="/boy-future.png" alt="Representação visual de um jovem no futuro utilizando tecnologia avançada da Braxen" height={950}  width={550} className="object-cover" />
       </div>
 
       <div className="container mx-auto px-6">
         <div className="mb-20">
-          <h2 className="text-3xl md:text-7xl font-bold mb-6">Soluções que te impulsionam para o <span className='text-secondary'>FUTURO.</span></h2>
+          <h2 className="text-3xl md:text-7xl font-bold mb-6">Soluções que impulsionam o seu <span className='text-secondary'>FUTURO.</span></h2>
           <p className="text-gray-400 max-w-3xl text-lg mb-6">
           A Braxen não é apenas uma fornecedora de serviços; somos a sua parceira estratégica dedicada a impulsionar o crescimento e a evolução do seu negócio.
           </p>

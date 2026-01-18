@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src="/hero.jpg"
-          alt="Braxen"
+          alt="Background abstrato de partículas representando tecnologia e fluidez"
           fill
           className="object-cover"
           sizes="100vw"

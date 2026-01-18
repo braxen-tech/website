@@ -58,6 +58,11 @@ export default function Contact() {
                 <form className="space-y-5" onSubmit={(e) => {
                   e.preventDefault();
                   const target = e.target as HTMLFormElement;
+                  
+                  if (!target.checkValidity()) {
+                    return;
+                  }
+
                   const name = (target.elements.namedItem('name') as HTMLInputElement)?.value || '';
                   const email = (target.elements.namedItem('email') as HTMLInputElement)?.value || '';
                   const subject = (target.elements.namedItem('subject') as HTMLTextAreaElement)?.value || '';
@@ -66,15 +71,15 @@ export default function Contact() {
                 }}>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-500">Nome Completo</label>
-                    <input name="name" type="text" className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-white placeholder-gray-700" placeholder="Ex: João Silva" />
+                    <input name="name" type="text" required className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-white placeholder-gray-700" placeholder="Ex: João Silva" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-500">Email Corporativo</label>
-                    <input name="email" type="email" className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-white placeholder-gray-700" placeholder="voce@empresa.com" />
+                    <input name="email" type="email" required className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-white placeholder-gray-700" placeholder="voce@empresa.com" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-widest mb-2 text-gray-500">Assunto</label>
-                    <textarea name="subject" rows={4} className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-white placeholder-gray-700 resize-none" placeholder="Descreva brevemente o assunto da conversa..." />
+                    <textarea name="subject" rows={4} required className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-white placeholder-gray-700 resize-none" placeholder="Descreva brevemente o assunto da conversa..." />
                   </div>
                   <button className="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-lg hover:opacity-90 hover:scale-[1.02] transition-all uppercase tracking-wider flex items-center justify-center gap-2 group">
                     Iniciar Conversa
