@@ -33,7 +33,7 @@ export default function Contact() {
                       <span className="text-lg font-medium">contact@braxentech.com</span>
                     </div>
                   </a>
-                  <a onClick={() => sendWhatsappMessage('Vim+do+site+Braxen+e+gostaria+de+mais+informa%C3%A7%C3%B5es')} className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors group">
+                  <a onClick={() => sendWhatsappMessage('Vim do site Braxen e gostaria de mais informações')} className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors group cursor-pointer">
                     <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                       <FaWhatsapp className="text-xl" />
                     </div>
