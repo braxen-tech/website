@@ -1,34 +1,34 @@
 import InfiniteMarquee from '@/components/ui/InfiniteMarquee';
 import { 
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaMobileAlt 
+  FaReact, FaPython, FaMobileAlt
 } from 'react-icons/fa';
 import { 
   SiTypescript, SiNextdotjs, SiTailwindcss, SiSupabase, 
-  SiFirebase, SiPostgresql, SiMysql 
+  SiFirebase, SiPostgresql, SiOpenai, SiExpo, SiMongodb, SiVercel
 } from 'react-icons/si';
 
 export default function Technologies() {
   const techs = [
-    { name: 'HTML5', icon: <FaHtml5 /> },
-    { name: 'CSS3', icon: <FaCss3Alt /> },
-    { name: 'JavaScript', icon: <FaJs /> },
-    { name: 'TypeScript', icon: <SiTypescript /> },
-    { name: 'React', icon: <FaReact /> },
     { name: 'Next.js', icon: <SiNextdotjs /> },
-    { name: 'Tailwind', icon: <SiTailwindcss /> },
-    { name: 'React Native', icon: <FaMobileAlt /> },
+    { name: 'React', icon: <FaReact /> },
+    { name: 'TypeScript', icon: <SiTypescript /> },
+    { name: 'Python', icon: <FaPython /> },
+    { name: 'OpenAI', icon: <SiOpenai /> },
     { name: 'Supabase', icon: <SiSupabase /> },
     { name: 'Firebase', icon: <SiFirebase /> },
+    { name: 'MongoDB', icon: <SiMongodb /> },
     { name: 'PostgreSQL', icon: <SiPostgresql /> },
-    { name: 'MySQL', icon: <SiMysql /> },
-    { name: 'Python', icon: <FaPython /> },
+    { name: 'React Native', icon: <FaMobileAlt /> },
+    { name: 'Expo', icon: <SiExpo /> },
+    { name: 'Tailwind', icon: <SiTailwindcss /> },
+    { name: 'Vercel', icon: <SiVercel /> },
   ];
 
   return (
-    <section id="technologies" className="py-24 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
+    <section id="technologies" className="py-24">
       <div className="container mx-auto px-6 mb-16 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Tech Stack</h2>
-          <p className="text-gray-400">Ferramentas de ponta para resultados excepcionais.</p>
+          <h2 className="text-3xl md:text-5xl font-black mb-4">Ecossistema de Performance</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Engenharia de ponta com as tecnologias que moldam o futuro do software global.</p>
       </div>
 
       <div className="w-full">
