@@ -2,13 +2,31 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Braxen | Engenharia de Software e IA de Alta Performance",
-  description: "Transformamos ideias complexas em software fluido, robusto e escalável. Especialistas em Next.js, Python e Agentes de IA para empresas modernas.",
-  keywords: ["Software House", "Desenvolvimento de Software", "Inteligência Artificial", "Agentes de IA", "Next.js", "React Native", "Python", "Supabase", "Consultoria de Tecnologia"],
+  description:
+    "Empresa de software no Rio de Janeiro: desenvolvimento web com Next.js e React, apps mobile, backend em nuvem (Supabase, Firebase), agentes de IA e consultoria CTO.",
+  keywords: [
+    "Software House",
+    "Desenvolvimento de Software",
+    "Desenvolvimento Web",
+    "Inteligência Artificial",
+    "Agentes de IA",
+    "Next.js",
+    "React",
+    "React Native",
+    "Python",
+    "Supabase",
+    "Firebase",
+    "SEO técnico",
+    "CTO as a Service",
+    "Automação de processos",
+    "Consultoria de Tecnologia",
+  ],
   authors: [{ name: "Braxen" }],
   creator: "Braxen",
   publisher: "Braxen",
@@ -19,7 +37,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Braxen | Engenharia de Software e IA de Alta Performance",
-    description: "Transformamos ideias complexas em software fluido e escalável. Sua parceira estratégica para a próxima era digital.",
+    description:
+      "Desenvolvimento web, mobile e IA para empresas. Engenharia de software com Next.js, agentes de IA e cloud — Braxen, Rio de Janeiro.",
     url: "https://braxentech.com",
     siteName: "Braxen",
     locale: "pt_BR",
@@ -36,7 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Braxen | Engenharia de Software e IA de Alta Performance",
-    description: "Desenvolvimento de software de alta performance e Agentes de IA.",
+    description:
+      "Desenvolvimento web e mobile, backend em nuvem e agentes de IA. Software house Braxen — Rio de Janeiro.",
     images: ["/hero.jpg"],
   },
   robots: {
@@ -87,6 +107,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} antialiased min-h-screen flex flex-col`}>
         <Navigation />
+        <ScrollProgressBar />
         <main className="flex-grow">
           {children}
         </main>

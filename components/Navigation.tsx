@@ -2,18 +2,41 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion, useScroll, useMotionValueEvent } from 'motion/react';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    if (isOpen) {
+      setHidden(false);
+      return;
+    }
+    const prev = scrollY.getPrevious() ?? 0;
+    const diff = latest - prev;
+    if (latest < 60) {
+      setHidden(false);
+      return;
+    }
+    if (diff > 2) setHidden(true);
+    else if (diff < -2) setHidden(false);
+  });
+
+  useEffect(() => {
+    if (isOpen) setHidden(false);
+  }, [isOpen]);
 
   const navLinks = [
     { name: 'Sobre', href: '#about' },
@@ -23,8 +46,13 @@ export default function Navigation() {
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <motion.nav
+      initial={false}
+      animate={{
+        y: hidden ? '-100%' : 0,
+      }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         scrolled || isOpen ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
       }`}
     >
@@ -32,12 +60,12 @@ export default function Navigation() {
         <Link href="/" className="text-2xl font-bold tracking-tighter" onClick={() => setIsOpen(false)}>
           BRAXEN<span className="text-primary">.</span>
         </Link>
-        
+
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className="text-sm uppercase tracking-widest hover:text-primary transition-colors font-medium"
             >
@@ -47,9 +75,11 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 transition-transform duration-300">
             {isOpen ? (
@@ -62,13 +92,15 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl transition-all duration-300 overflow-hidden ${
-        isOpen ? 'max-h-screen opacity-100 border-t border-white/10' : 'max-h-0 opacity-0'
-      }`}>
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl transition-all duration-300 overflow-hidden ${
+          isOpen ? 'max-h-screen opacity-100 border-t border-white/10' : 'max-h-0 opacity-0'
+        }`}
+      >
         <div className="flex flex-col items-center py-10 gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className="text-lg uppercase tracking-[0.2em] hover:text-primary transition-colors font-bold"
               onClick={() => setIsOpen(false)}
@@ -78,7 +110,6 @@ export default function Navigation() {
           ))}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
-
