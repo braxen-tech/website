@@ -39,7 +39,7 @@ export default function Hero() {
   const backgroundY = useTransform(scrollY, [0, 800], [0, 180]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-48 after:bg-gradient-to-t after:from-black after:via-black/60 after:to-transparent after:z-10 after:pointer-events-none">
       {/* Background Image — parallax */}
       <motion.div
         className="absolute inset-0 z-0 overflow-hidden"

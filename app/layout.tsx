@@ -94,6 +94,11 @@ export default function RootLayout({
       "@type": "ContactPoint",
       "telephone": "+55-21-97311-8404",
       "contactType": "customer service"
+    },
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "CNPJ",
+      "value": "65.811.582/0001-31"
     }
   };
 
@@ -111,8 +116,9 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/10">
-          © {new Date().getFullYear()} Braxen. Todos os direitos reservados.
+        <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/10 space-y-2">
+          <p>© {new Date().getFullYear()} Braxen. Todos os direitos reservados.</p>
+          <p className="text-gray-600">CNPJ 65.811.582/0001-31</p>
         </footer>
       </body>
     </html>
